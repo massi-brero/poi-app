@@ -2,6 +2,7 @@
   "version": 2,
   "projects": {
     "poi-app": "apps/poi-app",
-    "poi-app-e2e": "apps/poi-app-e2e"
+    "poi-app-e2e": "apps/poi-app-e2e",
+    "visitor": "libs/visitor"
   }
 }
