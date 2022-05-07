@@ -1,0 +1,86 @@
+{
+  "projectType": "application",
+  "sourceRoot": "apps/poi-app/src",
+  "prefix": "mbsoft",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/poi-app",
+        "index": "apps/poi-app/src/index.html",
+        "main": "apps/poi-app/src/main.ts",
+        "polyfills": "apps/poi-app/src/polyfills.ts",
+        "tsConfig": "apps/poi-app/tsconfig.app.json",
+        "assets": ["apps/poi-app/src/favicon.ico", "apps/poi-app/src/assets"],
+        "styles": ["apps/poi-app/src/styles.css"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/poi-app/src/environments/environment.ts",
+              "with": "apps/poi-app/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "poi-app:build:production"
+        },
+        "development": {
+          "browserTarget": "poi-app:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "poi-app:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["apps/poi-app/**/*.ts", "apps/poi-app/**/*.html"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/poi-app"],
+      "options": {
+        "jestConfig": "apps/poi-app/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
