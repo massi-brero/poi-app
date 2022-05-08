@@ -1,6 +1,8 @@
 {
   "version": 2,
   "projects": {
+    "admin": "libs/admin",
+    "poi": "libs/poi",
     "poi-app": "apps/poi-app",
     "poi-app-e2e": "apps/poi-app-e2e",
     "visitor": "libs/visitor"
