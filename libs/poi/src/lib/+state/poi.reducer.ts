@@ -1,5 +1,5 @@
-import { EntityState, EntityAdapter, createEntityAdapter } from '@ngrx/entity';
-import { createReducer, on, Action } from '@ngrx/store';
+import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
+import { Action, createReducer, on } from '@ngrx/store';
 
 import * as PoiActions from './poi.actions';
 import { PoiEntity } from './poi.models';
@@ -27,8 +27,8 @@ export const initialState: State = poiAdapter.getInitialState({
 const poiReducer = createReducer(
   initialState,
   on(PoiActions.init, (state) => ({ ...state, loaded: false, error: null })),
-  on(PoiActions.loadPoiSuccess, (state, { poi }) =>
-    poiAdapter.setAll(poi, { ...state, loaded: true })
+  on(PoiActions.loadPoiSuccess, (state, { pois }) =>
+    poiAdapter.setAll(pois, { ...state, loaded: true })
   ),
   on(PoiActions.loadPoiFailure, (state, { error }) => ({ ...state, error }))
 );

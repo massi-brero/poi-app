@@ -1,6 +1,7 @@
 import { LayoutModule } from '@angular/cdk/layout';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { GoogleMapsModule } from '@angular/google-maps';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
@@ -9,7 +10,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
 import { PoiModule } from '@mbsoft/poi';
 
+import { PoiListComponent } from './poi-list/poi-list.component';
 import { VisitorComponent } from './visitor.component';
+import { MapComponent } from './map/map.component';
 
 @NgModule({
   imports: [
@@ -21,6 +24,7 @@ import { VisitorComponent } from './visitor.component';
     MatIconModule,
     MatListModule,
     PoiModule,
+    GoogleMapsModule,
     RouterModule.forChild([
       {
         path: '',
@@ -28,6 +32,6 @@ import { VisitorComponent } from './visitor.component';
       },
     ]),
   ],
-  declarations: [VisitorComponent],
+  declarations: [VisitorComponent, PoiListComponent, MapComponent],
 })
 export class VisitorModule {}
