@@ -7,6 +7,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
+import { PoiModule } from '@mbsoft/poi';
 
 import { VisitorComponent } from './visitor.component';
 
@@ -19,6 +20,7 @@ import { VisitorComponent } from './visitor.component';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
+    PoiModule,
     RouterModule.forChild([
       {
         path: '',
