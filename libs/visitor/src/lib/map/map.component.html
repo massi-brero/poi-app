@@ -4,5 +4,8 @@
   *ngIf="poi$ | async as poi"
   [center]="poi"
 >
+  <map-info-window>
+    <mat-card></mat-card>
+  </map-info-window>
   <map-marker [position]="poi"></map-marker>
 </google-map>
