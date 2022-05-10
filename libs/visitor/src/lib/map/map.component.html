@@ -5,7 +5,19 @@
   [center]="poi"
 >
   <map-info-window>
-    <mat-card></mat-card>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title mat-card-image>{{ poi.name }}</mat-card-title>
+      </mat-card-header>
+      <img [src]="poi.imgUrl" alt="location image" />
+      <mat-card-content>
+        <p>{{ poi.description }}</p>
+      </mat-card-content>
+    </mat-card>
   </map-info-window>
-  <map-marker [position]="poi"></map-marker>
+  <map-marker
+    [position]="poi"
+    #marker="mapMarker"
+    (mapClick)="showInfo(marker)"
+  ></map-marker>
 </google-map>

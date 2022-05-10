@@ -5,7 +5,9 @@
   "targets": {
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/poi"],
+      "outputs": [
+        "coverage/libs/poi"
+      ],
       "options": {
         "jestConfig": "libs/poi/jest.config.ts",
         "passWithNoTests": true
@@ -14,7 +16,10 @@
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
-        "lintFilePatterns": ["libs/poi/**/*.ts", "libs/poi/**/*.html"]
+        "lintFilePatterns": [
+          "libs/poi/**/*.ts",
+          "libs/poi/**/*.html"
+        ]
       }
     }
   },
