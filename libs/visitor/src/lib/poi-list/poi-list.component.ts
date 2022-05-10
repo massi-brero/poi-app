@@ -17,4 +17,8 @@ export class PoiListComponent implements OnInit {
     this.pois$ = this.store.select(PoiSelectors.getAllPoi);
     this.store.dispatch(PoiActions.init());
   }
+
+  selectPoi(poi: PoiEntity) {
+    this.store.dispatch(PoiActions.selectPoi({ poiId: poi.id }));
+  }
 }

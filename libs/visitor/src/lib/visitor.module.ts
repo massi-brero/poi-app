@@ -10,9 +10,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
 import { PoiModule } from '@mbsoft/poi';
 
+import { MapComponent } from './map/map.component';
 import { PoiListComponent } from './poi-list/poi-list.component';
 import { VisitorComponent } from './visitor.component';
-import { MapComponent } from './map/map.component';
 
 @NgModule({
   imports: [

@@ -9,11 +9,11 @@
   },
   {
     "id": 2,
-    "lat": 38.50172172340826,
-    "lng": 22.51021540014237,
-    "name": "Delphi",
-    "description": "Delphi",
-    "imgUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Ac.delphi1.jpg/450px-Ac.delphi1.jpg"
+    "lat": 45.116177,
+    "lng": 7.742615,
+    "name": "Turin",
+    "description": "Turin",
+    "imgUrl": "https://upload.wikimedia.org/wikipedia/commons/9/92/Torino_Mole_Piemonte_Italy_Landscape_Travel.jpg"
   },
   {
     "id": 3,
