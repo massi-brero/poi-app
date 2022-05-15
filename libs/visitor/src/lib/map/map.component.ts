@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MapInfoWindow, MapMarker } from '@angular/google-maps';
-import { PoiEntity, PoiSelectors } from '@mbsoft/poi';
+import { PoiActions, PoiEntity, PoiSelectors } from '@mbsoft/poi';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
@@ -24,7 +24,8 @@ export class MapComponent implements OnInit {
     })
   }
 
-  showInfo(marker: MapMarker) {
+  showInfo(marker: MapMarker, poiId: string | number) {
+    this.store.dispatch(PoiActions.visitPoi({ poiId }))
     if (!this.infoOpen) {
       this.openInfo(marker)
     } else {

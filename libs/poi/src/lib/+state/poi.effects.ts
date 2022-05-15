@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { fetch } from '@nrwl/angular';
-import { map } from 'rxjs';
+import { EMPTY, map } from 'rxjs';
 
-import { PoiService } from '../poi.service';
 import * as PoiActions from './poi.actions';
 import { PoiEntity } from './poi.models';
+import { PoiService } from './poi.service';
 
 @Injectable()
 export class PoiEffects {
@@ -20,15 +20,27 @@ export class PoiEffects {
               map((pois: PoiEntity[]) =>
                 PoiActions.loadPoiSuccess({ pois: pois })
               )
-            );
+            )
         },
         onError: (_, error) => {
-          console.error('Error', error);
-          return PoiActions.loadPoiFailure({ error });
+          console.error('Error', error)
+          return PoiActions.loadPoiFailure({ error })
         },
       })
     )
-  );
+  )
+
+  visit$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(PoiActions.visitPoi),
+      fetch({
+        run: (action) => {
+          this.poiService.setPoiVisits(action.poiId)
+          return EMPTY
+        },
+      })
+    )
+  )
 
   constructor(
     private readonly actions$: Actions,

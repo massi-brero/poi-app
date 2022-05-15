@@ -18,6 +18,6 @@
   <map-marker
     [position]="poi"
     #marker="mapMarker"
-    (mapClick)="showInfo(marker)"
+    (mapClick)="showInfo(marker, poi.id)"
   ></map-marker>
 </google-map>
