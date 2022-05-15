@@ -7,7 +7,7 @@ const VISIT_PREFIX = 'tour'
   providedIn: 'root',
 })
 export class AdminService {
-  getStatsForPoi(pois: PoiEntity[]): number[] {
+  getStatsForPois(pois: PoiEntity[]): number[] {
     return pois.map((poi: PoiEntity) => {
       const poiStorageName = `${VISIT_PREFIX}-${poi.id}`
       const stat = localStorage.getItem(poiStorageName) ?? 0
