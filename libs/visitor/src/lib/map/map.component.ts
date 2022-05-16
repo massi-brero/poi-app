@@ -25,8 +25,8 @@ export class MapComponent implements OnInit {
   }
 
   showInfo(marker: MapMarker, poiId: string | number) {
-    this.store.dispatch(PoiActions.visitPoi({ poiId }))
     if (!this.infoOpen) {
+      this.store.dispatch(PoiActions.visitPoi({ poiId }))
       this.openInfo(marker)
     } else {
       this.closeInfo()

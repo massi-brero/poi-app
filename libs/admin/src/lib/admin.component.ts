@@ -16,8 +16,13 @@ export class AdminComponent implements OnInit, OnDestroy {
     | {
         type: string
         labels: string[]
-        data: string[] | number[]
-        backgroundColor: string[]
+        datasets: [
+          {
+            label: string
+            data: string[] | number[]
+            backgroundColor?: string[]
+          }
+        ]
       }
     | undefined
 
@@ -38,7 +43,12 @@ export class AdminComponent implements OnInit, OnDestroy {
     this.data = {
       type: 'pie',
       labels: pois.map((poi: PoiEntity) => poi.name),
-      data = this.adminService.getStatsForPois(pois),
+      datasets: [
+        {
+          label: 'Poi Visits',
+          data: this.adminService.getStatsForPois(pois),
+        },
+      ],
     }
   }
 }

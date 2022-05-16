@@ -1,1 +1,9 @@
-<p>admin works!</p>
+<div class="chart" *ngIf="data">
+  <canvas
+    height="100"
+    baseChart
+    type="pie"
+    [data]="data"
+    [labels]="data.labels"
+  ></canvas>
+</div>

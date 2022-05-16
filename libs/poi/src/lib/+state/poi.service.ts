@@ -15,7 +15,7 @@ export class PoiService {
   setPoiVisits(poiId: string | number) {
     const poiStorageName = `${VISIT_PREFIX}-${poiId}`
     const stat = localStorage.getItem(poiStorageName)
-    const total = stat ? Number(stat) : 1
+    const total = stat ? Number(stat) + 1 : 1
     localStorage.setItem(poiStorageName, total.toString())
   }
   getAll(): Observable<PoiEntity[]> {
